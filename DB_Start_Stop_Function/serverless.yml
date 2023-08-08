@@ -1,0 +1,42 @@
+
+
+service: DB_Start_Stop_Function
+
+plugins:
+  - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.9
+  stage: dev
+  region: ap-southeast-1
+
+package:
+  individually: true
+
+functions:
+  shut_rds_all:
+
+    handler: handler.shut_rds_all
+    description: Auto off db lambda function  
+    events:
+      - schedule: cron(0 0 12 * * ?)
+        package:
+    patterns:
+      - "!node_modules/**"
+      - "!yarn.lock"
+      - "!package-lock.json"
+      - "!package.json"
+
+
+  start_rds_all:
+    handler: handler.start_rds_all
+    description: Auto start db lambda function  
+    events:
+      - schedule: cron(0 0 0 * * ?)
+    patterns:
+      - "!node_modules/**"
+      - "!yarn.lock"
+      - "!package-lock.json"
+      - "!package.json"
+
