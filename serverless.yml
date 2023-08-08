@@ -21,12 +21,12 @@ functions:
     description: Auto off db lambda function  
     events:
       - schedule: cron(0 0 12 * * ?)
-        package:
-    patterns:
-      - "!node_modules/**"
-      - "!yarn.lock"
-      - "!package-lock.json"
-      - "!package.json"
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!yarn.lock"
+        - "!package-lock.json"
+        - "!package.json"
 
 
   start_rds_all:
@@ -34,9 +34,10 @@ functions:
     description: Auto start db lambda function  
     events:
       - schedule: cron(0 0 0 * * ?)
-    patterns:
-      - "!node_modules/**"
-      - "!yarn.lock"
-      - "!package-lock.json"
-      - "!package.json"
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!yarn.lock"
+        - "!package-lock.json"
+        - "!package.json"
 #a
