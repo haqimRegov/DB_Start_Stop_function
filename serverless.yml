@@ -16,12 +16,19 @@ provider:
 package:
   individually: true
 
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+
 functions:
   shut_rds_all:
     handler: handler.shut_rds_all
     description: Auto off db lambda function
     events:
-      - schedule: cron(0 12 * * ? *)
+      - schedule: cron(0 8 * * ? *)
+      - schedule: cron(10 8 * * ? *)
+
     package:
       patterns:
         - "!node_modules/**"
@@ -38,6 +45,7 @@ functions:
     handler: handler.start_rds_all
     description: Auto start db lambda function
     events:
+      - schedule: cron(0 0 * * ? *)
       - schedule: cron(0 0 * * ? *)
     package:
       patterns:
