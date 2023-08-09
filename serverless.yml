@@ -12,6 +12,8 @@ provider:
   runtime: python3.9
   stage: dev
   region: ap-southeast-1
+  iam:
+    role: arn:aws:iam::940734073892:role/DBStartStopAutomateRole
 
 package:
   individually: true
