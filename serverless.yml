@@ -59,3 +59,4 @@ functions:
       KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
       REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
       VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
+#
