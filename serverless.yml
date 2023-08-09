@@ -59,4 +59,3 @@ functions:
       KEY: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
       REGION: "${ssm:/DB_Start_Stop/dev/lambda/REGION}"
       VALUE: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
-#a
