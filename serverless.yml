@@ -21,7 +21,7 @@ functions:
     handler: handler.shut_rds_all
     description: Auto off db lambda function
     events:
-      - schedule: cron(0 0 12 * * ?)
+      - schedule: cron(0 12 * * ? *)
     package:
       patterns:
         - "!node_modules/**"
