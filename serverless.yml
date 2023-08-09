@@ -47,8 +47,8 @@ functions:
     handler: handler.start_rds_all
     description: Auto start db lambda function
     events:
-      - schedule: cron(15 8 * * ? *)
-      - schedule: cron(30 8 * * ? *)
+      - schedule: cron(45 8 * * ? *)
+      - schedule: cron(55 8 * * ? *)
     package:
       patterns:
         - "!node_modules/**"
