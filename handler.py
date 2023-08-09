@@ -55,7 +55,7 @@ def shut_rds_all(event, context):
                 print('DB Instance {0} is a Read Replica. Cannot shutdown a Read Replica instance'.format(i['DBInstanceIdentifier']))
             else:
                 print('DB Instance {0} has a read replica. Cannot shutdown a database with Read Replica'.format(i['DBInstanceIdentifier']))
-
+    
     response=client.describe_db_clusters()
     for i in response['DBClusters']:
         cluarn=i['DBClusterArn']
@@ -79,7 +79,7 @@ def shut_rds_all(event, context):
                 else:
                     print('DB Instance {0} is not part of auroShutdown'.format(i['DBClusterIdentifier']))
 
-
+    return "function stop db executed"
 
 def start_rds_all(event, context):
     region=os.environ['REGION']
@@ -146,3 +146,5 @@ def start_rds_all(event, context):
                     print('DB Cluster {0} is not part of autoshutdown'.format(i['DBClusterIdentifier']))
                 else:
                     print('DB Instance {0} is not part of autoShutdown'.format(i['DBClusterIdentifier']))
+                    
+    return "function start db executed"
