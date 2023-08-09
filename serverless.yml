@@ -5,7 +5,7 @@ plugins:
 
 custom:
   pythonRequirements:
-    dockerizePip: non-linux
+    zip: true
 
 provider:
   name: aws
