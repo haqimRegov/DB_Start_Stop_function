@@ -13,7 +13,7 @@ provider:
   stage: dev
   region: ap-southeast-1
   iam:
-    role: arn:aws:iam::940734073892:role/DBStartStopAutomateRole
+    role: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/ROLE}"
 
 package:
   individually: true
@@ -39,9 +39,9 @@ functions:
         - "!package.json"
 
     environment:
-      KEY: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
-      REGION: "${ssm:/DB_Start_Stop/dev/lambda/REGION}"
-      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
+      KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
+      REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
+      VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
 
   start_rds_all:
     handler: handler.start_rds_all
@@ -56,6 +56,6 @@ functions:
         - "!package-lock.json"
         - "!package.json"
     environment:
-      KEY: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
-      REGION: "${ssm:/DB_Start_Stop/dev/lambda/REGION}"
-      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
+      KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
+      REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
+      VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
