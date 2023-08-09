@@ -5,7 +5,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: python3.11
+  runtime: python3.9
   stage: dev
   region: ap-southeast-1
 

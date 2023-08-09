@@ -1,4 +1,4 @@
-#!C:\Users\User\Code\Python\DB_Start_Stop_Function\DB_Start_Stop_Function\venv\Scripts\python.exe
+#!C:\Devops\DB_Automation\DB_Start_Stop_function\venv\Scripts\python.exe
 
 import sys
 import json
