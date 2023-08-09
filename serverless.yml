@@ -29,6 +29,11 @@ functions:
         - "!package-lock.json"
         - "!package.json"
 
+    environment:
+      KEY: "${/DB_Start_Stop/dev/lambda/VALUE}"
+      REGION: "${/DB_Start_Stop/dev/lambda/REGION}"
+      VALUE: "${/DB_Start_Stop/dev/lambda/KEY}"
+
   start_rds_all:
     handler: handler.start_rds_all
     description: Auto start db lambda function
@@ -40,4 +45,8 @@ functions:
         - "!yarn.lock"
         - "!package-lock.json"
         - "!package.json"
+    environment:
+      KEY: "${/DB_Start_Stop/dev/lambda/VALUE}"
+      REGION: "${/DB_Start_Stop/dev/lambda/REGION}"
+      VALUE: "${/DB_Start_Stop/dev/lambda/KEY}"
 #a
