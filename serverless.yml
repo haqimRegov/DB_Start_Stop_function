@@ -30,9 +30,9 @@ functions:
         - "!package.json"
 
     environment:
-      KEY: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
+      KEY: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
       REGION: "${ssm:/DB_Start_Stop/dev/lambda/REGION}"
-      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
+      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
 
   start_rds_all:
     handler: handler.start_rds_all
@@ -46,7 +46,7 @@ functions:
         - "!package-lock.json"
         - "!package.json"
     environment:
-      KEY: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
+      KEY: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
       REGION: "${ssm:/DB_Start_Stop/dev/lambda/REGION}"
-      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/KEY}"
+      VALUE: "${ssm:/DB_Start_Stop/dev/lambda/VALUE}"
 #a
