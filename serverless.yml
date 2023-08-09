@@ -1,11 +1,11 @@
 service: DBStartStopFunction
 
-plugins:
-  - serverless-python-requirements
+# plugins:
+#   - serverless-python-requirements
 
-custom:
-  pythonRequirements:
-    zip: true
+# custom:
+#   pythonRequirements:
+#     zip: true
 
 provider:
   name: aws
