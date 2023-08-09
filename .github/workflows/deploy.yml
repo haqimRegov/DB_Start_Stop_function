@@ -29,6 +29,7 @@ jobs:
       - name: check for python version
         run: |
           python --version
+          pip --version
 
       - name: Install Serverless Framework
         run: npm install -g serverless@latest
