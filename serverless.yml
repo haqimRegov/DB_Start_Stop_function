@@ -1,6 +1,4 @@
-
-
-service: DB_Start_Stop_Function
+service: DBStartStopFunction
 
 plugins:
   - serverless-python-requirements
@@ -16,9 +14,8 @@ package:
 
 functions:
   shut_rds_all:
-
     handler: handler.shut_rds_all
-    description: Auto off db lambda function  
+    description: Auto off db lambda function
     events:
       - schedule: cron(0 0 12 * * ?)
     package:
@@ -28,10 +25,9 @@ functions:
         - "!package-lock.json"
         - "!package.json"
 
-
   start_rds_all:
     handler: handler.start_rds_all
-    description: Auto start db lambda function  
+    description: Auto start db lambda function
     events:
       - schedule: cron(0 0 0 * * ?)
     package:
