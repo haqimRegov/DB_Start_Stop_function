@@ -3,6 +3,10 @@ service: DBStartStopFunction
 plugins:
   - serverless-python-requirements
 
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
 provider:
   name: aws
   runtime: python3.9
