@@ -1,62 +1,62 @@
-# service: DBStartStopFunction
+service: DBStartStopFunction
 
-# # plugins:
-# #   - serverless-python-requirements
-
-# # custom:
-# #   pythonRequirements:
-# #     zip: true
-
-# provider:
-#   name: aws
-#   runtime: python3.9
-#   stage: dev
-#   region: ap-southeast-1
-#   iam:
-#     role: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/ROLE}"
-
-# package:
-#   individually: true
+# plugins:
+#   - serverless-python-requirements
 
 # custom:
 #   pythonRequirements:
-#     dockerizePip: true
 #     zip: true
 
-# functions:
-#   shut_rds_all:
-#     handler: handler.shut_rds_all
-#     description: Auto off db lambda function
-#     events:
-#       - schedule: cron(0 8 * * ? *)
-#       - schedule: cron(10 8 * * ? *)
+provider:
+  name: aws
+  runtime: python3.9
+  stage: dev
+  region: ap-southeast-1
+  iam:
+    role: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/ROLE}"
 
-#     package:
-#       patterns:
-#         - "!node_modules/**"
-#         - "!yarn.lock"
-#         - "!package-lock.json"
-#         - "!package.json"
+package:
+  individually: true
 
-#     environment:
-#       KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
-#       REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
-#       VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
 
-#   start_rds_all:
-#     handler: handler.start_rds_all
-#     description: Auto start db lambda function
-#     events:
-#       - schedule: cron(45 8 * * ? *)
-#       - schedule: cron(55 8 * * ? *)
-#     package:
-#       patterns:
-#         - "!node_modules/**"
-#         - "!yarn.lock"
-#         - "!package-lock.json"
-#         - "!package.json"
-#     environment:
-#       KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
-#       REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
-#       VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
-# #
+functions:
+  shut_rds_all:
+    handler: handler.shut_rds_all
+    description: Auto off db lambda function
+    events:
+      - schedule: cron(0 8 * * ? *)
+      - schedule: cron(10 8 * * ? *)
+
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!yarn.lock"
+        - "!package-lock.json"
+        - "!package.json"
+
+    environment:
+      KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
+      REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
+      VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
+
+  start_rds_all:
+    handler: handler.start_rds_all
+    description: Auto start db lambda function
+    events:
+      - schedule: cron(45 8 * * ? *)
+      - schedule: cron(55 8 * * ? *)
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!yarn.lock"
+        - "!package-lock.json"
+        - "!package.json"
+    environment:
+      KEY: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/KEY}"
+      REGION: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/REGION}"
+      VALUE: "${ssm:/DB_Start_Stop/${sls:stage}/lambda/VALUE}"
+#
