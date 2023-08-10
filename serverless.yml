@@ -28,8 +28,8 @@ functions:
     handler: handler.shut_rds_all
     description: Auto off db lambda function
     events:
-      - schedule: cron(0 8 * * ? *)
-      - schedule: cron(10 8 * * ? *)
+      - schedule: cron(10 3 * * ? *)
+      - schedule: cron(15 3 * * ? *)
 
     package:
       patterns:
@@ -47,8 +47,8 @@ functions:
     handler: handler.start_rds_all
     description: Auto start db lambda function
     events:
-      - schedule: cron(45 8 * * ? *)
-      - schedule: cron(55 8 * * ? *)
+      - schedule: cron(0 3 * * ? *)
+      - schedule: cron(5 3 * * ? *)
     package:
       patterns:
         - "!node_modules/**"
