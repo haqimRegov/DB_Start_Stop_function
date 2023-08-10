@@ -1,16 +1,19 @@
 name: Serverless Deployment
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop-tes
 
 jobs:
-  deploy:
+  deploy_SIT:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.9"]
+    environment:
+      name: SIT
 
     steps:
       - name: Checkout code
