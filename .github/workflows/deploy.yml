@@ -6,6 +6,10 @@ on:
     branches:
       - develop-tes
 
+  pull_request:
+    branches:
+      - develop-tes
+
 jobs:
   deploy_SIT:
     runs-on: ubuntu-latest
@@ -45,4 +49,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          sls deploy --stage dev
+          sls deploy --stage sit
