@@ -6,6 +6,10 @@ on:
     branches:
       - develop-tes
 
+  pull_request:
+    branches:
+      - develop-tes
+
 jobs:
   deploy_SIT:
     runs-on: ubuntu-latest
